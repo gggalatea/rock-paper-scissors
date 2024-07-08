@@ -23,39 +23,45 @@ function getHumanChoice() {
     }
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
 
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice === computerChoice) {
-            console.log(`\nYou chose ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
-            console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
-            console.log(`Draw! You both chose ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
-            console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
-        } else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
-            console.log(`\nYou chose ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
-            console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
-            console.log(`You win! ${humanChoice[0].toUpperCase() + humanChoice.slice(1)} beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
-            humanScore++;
-            console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
-        } else {
-            console.log(`\nYou chose ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
-            console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
-            console.log(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice[0].toUpperCase() + humanChoice.slice(1)}`);
-            computerScore++;
-            console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
-        }
+let playerScore = 0;
+let computerScore = 0;
+
+const btnsContainer = document.querySelector(".container");
+
+btnsContainer.addEventListener("click", playRound);
+
+function playRound(e) {
+    const playerChoice = e.target.dataset.playerChoice;
+    if (!playerChoice) {
+        return;
     }
-
-    console.log(`\nYour final score: ${humanScore}, Computer final score: ${computerScore}`);
-    if (humanScore === computerScore) {
-        console.log("Draw!");
-    } else if (humanScore > computerScore) {
-        console.log("You win!");
+    const computerChoice = getComputerChoice();
+    if (playerChoice === computerChoice) {
+        console.log(`\nYou chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
+        console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
+        console.log(`Draw! You both chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
+        console.log(`Your score: ${playerScore}, Computer score: ${computerScore}`);
+    } else if ((playerChoice === "rock" && computerChoice === "scissors") || (playerChoice === "paper" && computerChoice === "rock") || (playerChoice === "scissors" && computerChoice === "paper")) {
+        console.log(`\nYou chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
+        console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
+        console.log(`You win! ${playerChoice[0].toUpperCase() + playerChoice.slice(1)} beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
+        playerScore++;
+        console.log(`Your score: ${playerScore}, Computer score: ${computerScore}`);
     } else {
-        console.log("You lose!");
+        console.log(`\nYou chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
+        console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
+        console.log(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
+        computerScore++;
+        console.log(`Your score: ${playerScore}, Computer score: ${computerScore}`);
     }
 }
 
-playGame();
+console.log(`\nYour final score: ${playerScore}, Computer final score: ${computerScore}`);
+if (playerScore === computerScore) {
+    console.log("Draw!");
+} else if (playerScore > computerScore) {
+    console.log("You win!");
+} else {
+    console.log("You lose!");
+}
