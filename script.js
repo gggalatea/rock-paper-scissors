@@ -28,6 +28,9 @@ let playerScore = 0;
 let computerScore = 0;
 
 const btnsContainer = document.querySelector(".container");
+const playerText = document.querySelector(".player-choice");
+const computerText = document.querySelector(".computer-choice");
+const result = document.querySelector(".result");
 
 btnsContainer.addEventListener("click", playRound);
 
@@ -37,23 +40,21 @@ function playRound(e) {
         return;
     }
     const computerChoice = getComputerChoice();
+
     if (playerChoice === computerChoice) {
-        console.log(`\nYou chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
-        console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
-        console.log(`Draw! You both chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
-        console.log(`Your score: ${playerScore}, Computer score: ${computerScore}`);
+        playerText.textContent = `You chose: ${playerChoice}`;
+        computerText.textContent = `Computer chose: ${computerChoice}`;
+        result.textContent = `Draw!`
     } else if ((playerChoice === "rock" && computerChoice === "scissors") || (playerChoice === "paper" && computerChoice === "rock") || (playerChoice === "scissors" && computerChoice === "paper")) {
-        console.log(`\nYou chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
-        console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
-        console.log(`You win! ${playerChoice[0].toUpperCase() + playerChoice.slice(1)} beats ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
+        playerText.textContent = `You chose: ${playerChoice}`;
+        computerText.textContent = `Computer chose: ${computerChoice}`;
+        result.textContent = `You win!`;
         playerScore++;
-        console.log(`Your score: ${playerScore}, Computer score: ${computerScore}`);
     } else {
-        console.log(`\nYou chose ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
-        console.log(`Computer chose ${computerChoice[0].toUpperCase() + computerChoice.slice(1)}`);
-        console.log(`You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${playerChoice[0].toUpperCase() + playerChoice.slice(1)}`);
+        playerText.textContent = `You chose: ${playerChoice}`;
+        computerText.textContent = `Computer chose: ${computerChoice}`;
+        result.textContent = `You lose!`;
         computerScore++;
-        console.log(`Your score: ${playerScore}, Computer score: ${computerScore}`);
     }
 }
 
