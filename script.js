@@ -48,10 +48,6 @@ function playGame() {
         }
     }
 
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-
     console.log(`\nYour final score: ${humanScore}, Computer final score: ${computerScore}`);
     if (humanScore === computerScore) {
         console.log("Draw!");
