@@ -1,0 +1,162 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0px;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #2A9D8F;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    width: 800px;
+    margin-top: 75px;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0px;
+    padding: 40px;
+    font-weight: 900;
+    font-size: 40px;
+    background-color: #264653;
+    color: white;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin: 0px;
+}
+
+.score-container {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.individual-score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px;
+}
+
+.player-score-text,
+.computer-score-text,
+.score-dash {
+    font-weight: 500;
+    font-size: 100px;
+}
+
+.name {
+    font-size: 20px;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    row-gap: 25px;
+}
+
+.choice-text-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap: 40px;
+}
+
+.player-choice-text,
+.computer-choice-text {
+    width: 200px;
+    text-align: center;
+}
+
+.result {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.rps-container {
+    display: flex;
+    width: 100%;
+    column-gap: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 40px;
+}
+
+.choice {
+    padding: 50px;
+    flex: 1;
+    font-size: 25px;
+}
+
+button[data-player-choice="rock"] {
+    background-color: #E9C46A;
+    border: none;
+    border-radius: 10px;
+}
+
+button[data-player-choice="rock"]:hover {
+    background-color: #E4B94B;
+}
+
+button[data-player-choice="paper"] {
+    background-color: #F4A261;
+    border: none;
+    border-radius: 10px;
+}
+
+button[data-player-choice="paper"]:hover {
+    background-color: #F29142;
+}
+
+button[data-player-choice="scissors"] {
+    background-color: #E76F51;
+    border: none;
+    border-radius: 10px;
+}
+
+button[data-player-choice="scissors"]:hover {
+    background-color: #E35835;
+}
+
+.new-game {
+    align-self: stretch;
+    margin-bottom: 40px;
+    padding: 25px;
+    font-size: 25px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: #264653;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.new-game:hover {
+    background-color: #23404B;
+}
+
+button {
+    font-family: inherit;
+}

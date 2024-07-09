@@ -2,27 +2,45 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Rock Paper Scissors</title>
+        <link href="./style.css" rel="stylesheet">
         <script src="./script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     </head>
 
     <body>
-        <h1>First to 5</h1>
-        <div class="scoreContainer">
-            <p class="score"></p>
-            <p>You</p>
-            <p>Computer</p>
+        <div class="container">
+            <h1>First to 5</h1>
+
+            <div class="score-container">
+                <div class="individual-score-container">
+                    <p class="player-score-text"></p>
+                    <p class="name">Player</p>
+                </div>
+                <p class="score-dash">-</p>
+                <div class="individual-score-container">
+                    <p class="computer-score-text"></p>
+                    <p class="name">Computer</p>
+                </div>
+            </div>
+
+            <div class="result-container">
+                <div class="choice-text-container">
+                    <p class="player-choice-text"></p>
+                    <p class="computer-choice-text"></p>
+                </div>
+                <p class="result"></p>
+            </div>
+
+            <div class="rps-container">
+                <button class="choice" data-player-choice="rock">Rock</button>
+                <button class="choice" data-player-choice="paper">Paper</button>
+                <button class="choice" data-player-choice="scissors">Scissors</button>
+            </div>
+
+            <button class="new-game">New Game</button>
         </div>
-        <div class="rps-container">
-            <button data-player-choice="rock">Rock</button>
-            <button data-player-choice="paper">Paper</button>
-            <button data-player-choice="scissors">Scissors</button>
-        </div>
-        <div class="resultContainer">
-            <p class="player-choice-text"></p>
-            <p class="computer-choice-text"></p>
-            <p class="result"></p>
-        </div>
-        <button class="new-game">New Game</button>
     </body>
 </html>

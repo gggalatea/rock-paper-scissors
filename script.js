@@ -15,17 +15,19 @@ function getComputerChoice() {
 let playerScore = 0;
 let computerScore = 0;
 
-const score = document.querySelector(".score")
+const playerScoreText = document.querySelector(".player-score-text")
+const computerScoreText = document.querySelector(".computer-score-text")
 
-score.textContent = `${playerScore} - ${computerScore}`;
+playerScoreText.textContent = `${playerScore}`;
+computerScoreText.textContent = `${computerScore}`;
 
 const newGameBtn = document.querySelector(".new-game");
 
 newGameBtn.style.display = "none";
 
 const btnsContainer = document.querySelector(".rps-container");
-const playerText = document.querySelector(".player-choice-text");
-const computerText = document.querySelector(".computer-choice-text");
+const playerChoiceText = document.querySelector(".player-choice-text");
+const computerChoiceText = document.querySelector(".computer-choice-text");
 const result = document.querySelector(".result");
 
 btnsContainer.addEventListener("click", playRound);
@@ -42,21 +44,22 @@ function playRound(e) {
     const computerChoice = getComputerChoice();
 
     if (playerChoice === computerChoice) {
-        playerText.textContent = `You chose: ${playerChoice}`;
-        computerText.textContent = `Computer chose: ${computerChoice}`;
+        playerChoiceText.textContent = `You chose: ${playerChoice}`;
+        computerChoiceText.textContent = `Computer chose: ${computerChoice}`;
         result.textContent = `Draw!`;
     } else if ((playerChoice === "rock" && computerChoice === "scissors") || (playerChoice === "paper" && computerChoice === "rock") || (playerChoice === "scissors" && computerChoice === "paper")) {
-        playerText.textContent = `You chose: ${playerChoice}`;
-        computerText.textContent = `Computer chose: ${computerChoice}`;
+        playerChoiceText.textContent = `You chose: ${playerChoice}`;
+        computerChoiceText.textContent = `Computer chose: ${computerChoice}`;
         result.textContent = `You win!`;
         playerScore++;
     } else {
-        playerText.textContent = `You chose: ${playerChoice}`;
-        computerText.textContent = `Computer chose: ${computerChoice}`;
+        playerChoiceText.textContent = `You chose: ${playerChoice}`;
+        computerChoiceText.textContent = `Computer chose: ${computerChoice}`;
         result.textContent = `You lose!`;
         computerScore++;
     }
-    score.textContent = `${playerScore} - ${computerScore}`;
+    playerScoreText.textContent = `${playerScore}`;
+    computerScoreText.textContent = `${computerScore}`;
 
     if (playerScore === 5) {
         result.textContent = `You win the first to 5!`;
@@ -72,9 +75,10 @@ newGameBtn.addEventListener("click", playNewGame);
 function playNewGame() {
     playerScore = 0;
     computerScore = 0;
-    score.textContent = `${playerScore} - ${computerScore}`;
+    playerScoreText.textContent = `${playerScore}`;
+    computerScoreText.textContent = `${computerScore}`;
     newGameBtn.style.display = "none";
-    playerText.textContent = ``;
-    computerText.textContent = ``;
+    playerChoiceText.textContent = ``;
+    computerChoiceText.textContent = ``;
     result.textContent = ``;
 }
