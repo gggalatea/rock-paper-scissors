@@ -12,18 +12,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    while (true) {
-        let humanChoice = prompt("Choose rock, paper or scissors!");
-        if (humanChoice.toLowerCase() === "rock" || humanChoice.toLowerCase() === "paper" || humanChoice.toLowerCase() === "scissors") {
-            return humanChoice.toLowerCase();
-        } else {
-            alert("You have entered rock, paper or scissors incorrectly! Please try again!");
-        }
-    }
-}
-
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -36,8 +24,8 @@ const newGameBtn = document.querySelector(".new-game");
 newGameBtn.style.display = "none";
 
 const btnsContainer = document.querySelector(".rps-container");
-const playerText = document.querySelector(".player-choice");
-const computerText = document.querySelector(".computer-choice");
+const playerText = document.querySelector(".player-choice-text");
+const computerText = document.querySelector(".computer-choice-text");
 const result = document.querySelector(".result");
 
 btnsContainer.addEventListener("click", playRound);
